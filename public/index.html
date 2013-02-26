@@ -27,11 +27,83 @@
   <body>
     My name is <input type="text" /> and I know of <span id="numberOfKittens">0</span> kittens
     <br/>
-    <button id="kittenCounter">Oh my goodness all of the kittens</button>
+    <button id="getKittenCount">Oh my goodness all of the kittens</button>
     
+    <hr/>
+    
+    I found an additional <input type="text" id="kittensToAdd" value="25" /> kittens!
+    <br/>
+    <button id="addKittenCount">Put them on the internet. Now!!</button>
+    
+    <hr/>
+    
+    Are... are you sure you want to enable multikitten mode?
+    <br/>
+    <button id="multikitten">LOOK AT THEIR LITTLE PAWS. OF COURSE, YOU MONSTER</button>
+      
     <script src="/javascripts/jquery.js"></script>
     <script>
-    
+      $("#getKittenCount").on("click", function(){
+        
+        $.ajax({
+          
+          url: "/api/kittens",
+
+          success: function(data) {
+            $("#numberOfKittens").text(data.kittens);
+          }
+          
+        })
+          
+      });
+      
+      $("#addKittenCount").on("click", function(){
+        
+        $.ajax({
+          
+          url: "/api/more_kittens",
+          
+          data: { more: $("#kittensToAdd").val() },
+
+          success: function(data) {
+            $("#numberOfKittens").text(data.kittens);
+          }
+          
+        })
+          
+      });
+      
+      $("#multikitten").on("click", function(){
+        
+        $.ajax({
+          
+          url: "api/multikitten",
+          
+          success: function(data) {
+            $("#numberOfKittens").text(data.kittens);
+
+            setInterval(function(){
+              
+              $.ajax({
+
+                url: "/api/kittens",
+
+                success: function(data) {
+                  $("#numberOfKittens").text(data.kittens);
+                }
+
+              });
+              
+            }, 877)
+            
+          }
+          
+        });
+        
+      });
+      
+      
+      
     </script>
   </body>
 </html>
