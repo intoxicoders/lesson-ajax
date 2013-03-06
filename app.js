@@ -23,6 +23,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.get('/deck', routes.deck);
 app.get('/api/kittens', routes.api.kittens);
 app.get('/api/more_kittens', routes.api.more_kittens);
 app.get('/api/multikitten', routes.api.multikitten);

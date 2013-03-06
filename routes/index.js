@@ -1,11 +1,15 @@
-// "Hey, Kate, pick a number between ten thousand and five million"
-var kittensOnTheInternet = 4221618;
-
-var multiKitten;
-
 exports.index = function(req, res){
   res.sendfile("public/index.html");
 };
+
+exports.deck = function(req, res){
+  res.sendfile("public/deck.html")
+};
+
+
+// "Hey, Kate, pick a number between ten thousand and five million"
+var kittensOnTheInternet = 4221618;
+var multiKitten;
 
 exports.api = {
   
@@ -19,9 +23,11 @@ exports.api = {
   },
   
   multikitten: function(req, res) {
-    multiKitten = setInterval(function(){
-      kittensOnTheInternet++;
-    }, 100);
+    if (!multikitten) {
+      multiKitten = setInterval(function(){
+        kittensOnTheInternet++;
+      }, 100);
+    }
     res.json({ kittens: kittensOnTheInternet, kittens_are: "multiplying" });
   },
   
