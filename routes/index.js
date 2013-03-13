@@ -9,7 +9,7 @@ exports.deck = function(req, res){
 
 // "Hey, Kate, pick a number between ten thousand and five million"
 var kittensOnTheInternet = 4221618;
-var multiKitten;
+var multiKitten = null;
 
 exports.api = {
   
@@ -23,7 +23,7 @@ exports.api = {
   },
   
   multikitten: function(req, res) {
-    if (!multikitten) {
+    if (!multiKitten) {
       multiKitten = setInterval(function(){
         kittensOnTheInternet++;
       }, 100);
