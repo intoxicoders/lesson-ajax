@@ -19,6 +19,12 @@
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
 
+    <style>
+      .slides li { margin-bottom:10px; }
+      .blue { color: #13daec; }
+      .pink { color: #ff5e99; }
+    </style>
+
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -30,11 +36,59 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-
+			  
 				<section>
 					<h2>AJAX / Single-page web apps</h2>
 					<p><img src="/images/intoxicoders-wide.png" style="border:none; background:none; box-shadow:none;" /></p>
-					<p>This is a thing did by Kyle Hill<br/>He is a software engineer at JIBE</p>
+					<p>This is a thing by Kyle Hill<br/>He is a software engineer at JIBE</p>
+				</section>
+				
+				<section>
+			    <h2>A really pedantic overview of<br/>Client-Server Architecture</h2>
+			    <br/>
+			    <ul>
+  			    <li class="fragment"><span class="pink">Client</span> (e.g. web browser) makes request from <span class="blue">server</span></li>
+  			    <li class="fragment"><span class="blue">Server</span> returns <em>something</em> to <span class="pink">client</span></li>
+			      <li class="fragment"><span class="pink">Client</span> does <em>something</em> with that data</li>
+			    </ul>
+			    <br/>
+			    <br/>
+			    <p class="fragment">(Sorry if you knew that already)</p>
+			  </section>
+			  
+        <section>
+				  <section>
+				    <h2>A brief history of web development</h2>
+				  </section>
+				  
+				  <section>
+				    <h2>Walled Garden Networks</h2>
+				    <img src="/images/512px-America_Online_logo.svg_.jpg" />
+				  </section>
+				  <section>
+				    <h2>World Wide Web</h2>
+				    <img src="/images/World-Wide-Web-logo.jpeg" />
+				  </section>
+				  <section>
+				    <h2>Client-side page code</h2>
+				    <img src="/images/javascript_logo.png" />
+				  </section>
+				  <section>
+				    <h2>Client-side executable code</h2>
+				    <img src="/images/activex_logo1.jpg" />
+				    <img src="/images/Shockwave-logo.jpg" />
+				    <img src="/images/applet-300x235.png" />
+				  </section>
+				  <section>
+            <h2 style="text-transform:none;">AJAX (or, the holy grail)</h2>
+            <br/>
+            <ul class="large">
+              <li>Asynchronous</li>
+              <li>Javascript</li>
+              <li style="text-decoration:line-through; color:gray">And</li>
+              <li style="text-decoration:line-through; color:gray">XML</li>
+            </ul>
+				  </section>
 				</section>
 
 				<section>
@@ -98,7 +152,7 @@ request.send();
         <section>
           <section>
             <h2>The solution to these problems, which is remarkably similar to the solution for almost every other problem in Javascript</h2>
-            <p><br/>
+            <p class="fragment"><br/>
               Fuck it, just use jQuery.
             </p>
           </section>
@@ -146,6 +200,8 @@ $.ajax({
   // JS object, contents passed to the server with the request
   data: { color: "brown" },
 
+  method: "GET",
+
   success: function(data) {
     console.log(data);
   },
@@ -176,42 +232,25 @@ $.ajax({
           
           <section>
             <h2>No cross-domain AJAX requests</h2>
-            <p>Workarounds:</p>
-            <ul>
-              <li>JSONP (server config required)</li>
-              <li>Cross-Origin Resource Sharing (same)</li>
-              <li>Yahoo YQL as middleware (dirty, dirty hack)</li>
-            </ul>
           </section>
           
           <section>
             <h2>Be careful with your code</h2>
-            <ul>
-              <li>No page refresh = no tolerance for memory leaks</li>
-              <li>It is really, really easy to write shitty Javascript</li>
-            </ul>
           </section>
           
           <section>
             <h2>Asynchronous code is "fun"</h2>
-            <ul>
-              <li>Implicit multithreading makes control flow a big deal</li>
-              <li>Race conditions <strong>suck</strong> to debug</li>
-              <li>Again: It is really, really easy to write shitty Javascript</li>
-            </ul>
           </section>
           
           <section>
-            <h2>Client-server limitations</h2>
-            <ul>
-              <li>Request-only; servers can't push updates to clients</li>
-              <li>Each request is an HTTP request/response<br/>
-                  Transmission time + processing time can scale out of whack quickly</li>
-              <li>ProTip: There's a bleeding-edge way around this... look up "WebSockets"</li>
-            </ul>
+            <h2>Client-server model</h2>
           </section>
         </section>
         
+        <section>
+          <h1>Thanks!</h1>
+          <h3><span class="blue">@kylehill</span></h3>
+        </section>
 			</div>
 
 		</div>
