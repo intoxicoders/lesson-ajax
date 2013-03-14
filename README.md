@@ -18,3 +18,28 @@ For this project, you'll need to have installed [git](http://git-scm.com) to "cl
     Express server listening on port 3000
     
 Once the server is listening, open a web browser and go to http://localhost:3000.
+
+*Have you already done the initial setup?* Awesome. If you want to see the final product (it works now, I promise!) go back into terminal and enter the following commands. *Note: You will lose any work you've done so far.*
+
+    $ git reset --hard origin/master
+    HEAD is now at (something)
+    
+    $ git pull origin master
+    remote: Counting objects: 8, done.
+    remote: Compressing objects: 100% (2/2), done.
+    remote: Total 5 (delta 2), reused 5 (delta 2)
+    Unpacking objects: 100% (5/5), done.
+    From github.com:intoxicoders/lesson-ajax
+     * branch            master     -> FETCH_HEAD
+    Updating 5e635d4..3cf2b5f
+    Fast-forward
+     routes/index.js |    6 +++---
+     1 file changed, 3 insertions(+), 3 deletions(-)
+     
+    $ git checkout complete
+    Switched to branch 'complete'
+    
+    $ node app
+    Express server listening on port 3000
+    
+Once again, go to http://localhost:3000 in a web browser and it'll work. If you have any issues, feel free get in touch with me and we can resolve them.
